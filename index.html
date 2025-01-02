@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recovery Phrase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .app-container {
+      background-color: white;
+      width: 375px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      padding: 16px;
+      font-size: 14px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .header a {
+      font-size: 14px;
+      color: #007aff;
+      text-decoration: none;
+    }
+
+    .header h1 {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .header h1 + a {
+      margin-left: auto;
+    }
+
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #555;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .phrase-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .phrase {
+      background-color: #f3f4f6;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 8px;
+      text-align: center;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .copy-button {
+      display: block;
+      text-align: center;
+      color: #007aff;
+      font-size: 16px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+
+    .warning {
+      background-color: #eef6fd;
+      color: #007aff;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .continue-button {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: #007aff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="header">
+      <a href="#">Manage</a>
+      <h1>Your recovery phrase</h1>
+      <a href="#">Show QR</a>
+    </div>
+    <div class="title">Write down or copy these words</div>
+    <div class="description">Write down or copy these words in the right order and save them somewhere safe.</div>
+    <div class="phrase-container">
+      <div class="phrase">1 duty</div>
+      <div class="phrase">2 barely</div>
+      <div class="phrase">3 dizzy</div>
+      <div class="phrase">4 sand</div>
+      <div class="phrase">5 pumpkin</div>
+      <div class="phrase">6 upon</div>
+      <div class="phrase">7 urge</div>
+      <div class="phrase">8 protect</div>
+      <div class="phrase">9 album</div>
+      <div class="phrase">10 federal</div>
+      <div class="phrase">11 session</div>
+      <div class="phrase">12 wide</div>
+    </div>
+    <a class="copy-button" onclick="copyToClipboard()">Copy</a>
+    <div class="warning">
+      Never share recovery phrase with anyone, store it securely!
+    </div>
+    <button class="continue-button">Continue</button>
+  </div>
+
+  <script>
+    function copyToClipboard() {
+      const phrase = Array.from(document.querySelectorAll('.phrase'))
+        .map(el => el.textContent)
+        .join(' ');
+      navigator.clipboard.writeText(phrase).then(() => {
+        alert('Recovery phrase copied to clipboard!');
+      });
+    }
+  </script>
+</body>
+</html>
